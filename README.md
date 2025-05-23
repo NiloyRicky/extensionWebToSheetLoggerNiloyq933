@@ -28,7 +28,17 @@ This Chrome extension allows users to highlight text on any webpage and save it 
 - **Floating "Save" button appears when text is selected.**
 - **Captures and logs selected text on button click.**
 
+## DAY-3 Progress
+Features
+Captures metadata: Selected text, page title, URL, and timestamp.
 
+Displays confirmation popup after clicking the "Save" button.
+
+Includes "Confirm Save" button to finalize the logging action.
+
+Popup styled with basic CSS for better readability.
+
+Prepares the data for future integration with Google Sheets.
 
 ## Installation
 1. Clone or download this repository.
@@ -50,6 +60,7 @@ This Chrome extension allows users to highlight text on any webpage and save it 
 ## Progress
 - Day 1: Set up manifest.json, popup UI, and content script.
 - Day 2: Implemented text selection detection and floating save button. Logged selected text  to console.**
+- - Day 3: Collected metadata (title, URL, timestamp) along with selected text. Displayed all in a styled popup with "Confirm Save" button.
 ## Notes
 This is a Chrome extension and runs locally within the browser. No server or hosting is required at this stage.
 
