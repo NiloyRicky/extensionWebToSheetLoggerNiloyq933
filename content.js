@@ -1,6 +1,6 @@
 console.log("Hello from content script");
 
-
+let lastText="";
 const showSaveButton = (x, y, text) => {
   // Remove old button if exists
   const oldBtn = document.getElementById("highlight-save-btn");
@@ -9,30 +9,74 @@ const showSaveButton = (x, y, text) => {
   const button = document.createElement("button");
   button.innerText = "Save";
   button.id = "highlight-save-btn";
-  button.style.position = "absolute";
+  button.style.position = "absolute"; //position the button relative to the entire page
   button.style.top = `${y + 10}px`;
   button.style.left = `${x + 10}px`;
-  button.style.zIndex = 9999;
-  button.style.background = "#1976d2";
-  button.style.color = "#fff";
-  button.style.border = "none";
-  button.style.padding = "5px 10px";
-  button.style.borderRadius = "4px";
-  button.style.cursor = "pointer";
+ 
 
   document.body.appendChild(button);
 
   button.onclick = () => {
-    console.log("Saving text:", text);
+    //console.log("Saving text:", text);
     // Later: Send to background or popup to save in Sheet
     button.remove();
+     showMetadataPopup(text);
+     lastText="";
   };
 };
 
+
+// Show metadata in a popup with confirm button
+const showMetadataPopup = (text) => {
+  const title = document.title;
+  const url = window.location.href;
+  const timestamp = new Date().toISOString();
+
+  // Remove old popup if exists
+  const oldPopup = document.getElementById("highlight-popup");
+  if (oldPopup) oldPopup.remove();
+
+  const popup = document.createElement("div");
+  popup.id = "highlight-popup";
+  
+
+  popup.innerHTML = `
+    <strong>Selected Text:</strong><br>${text}<br><br>
+    <strong>Title:</strong> ${title}<br>
+    <strong>URL:</strong> ${url}<br>
+    <strong>Time:</strong> ${timestamp}<br><br>
+    <button id="confirm-save" >Confirm Save</button>
+  
+`
+  document.body.appendChild(popup);
+
+  document.getElementById("confirm-save").onclick = () => {
+    console.log("Saving to Sheet:", {
+      text,
+      title,
+      url,
+      timestamp,
+    });
+    popup.remove();
+    button.remove();
+
+    // Later: send data to background script or Google Sheet
+  };
+};
+
+
+
+
+
+
+
+
 document.addEventListener("mouseup",(e)=>{
     const selectedText=window.getSelection().toString();
-    if(selectedText){
+    if(selectedText && selectedText !==lastText){
+lastText=selectedText
         showSaveButton(e.pageX, e.pageY, selectedText);
+
         console.log(selectedText);
     }
 
