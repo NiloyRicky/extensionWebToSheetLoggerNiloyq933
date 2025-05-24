@@ -40,6 +40,22 @@ Popup styled with basic CSS for better readability.
 
 Prepares the data for future integration with Google Sheets.
 
+
+## DAY-4 Progress
+Features
+
+Integrated background script to handle saving highlights asynchronously.
+
+Implemented POST request to Google Apps Script Web App for storing data in Google Sheets.
+
+Added proper JSON serialization with JSON.stringify for data transfer.
+
+Handled success and error responses with Promises (.then and .catch).
+
+Ensured asynchronous message handling in background script by returning true.
+
+
+
 ## Installation
 1. Clone or download this repository.
 2. Open Chrome and go to `chrome://extensions`.
@@ -59,8 +75,9 @@ Prepares the data for future integration with Google Sheets.
 
 ## Progress
 - Day 1: Set up manifest.json, popup UI, and content script.
-- Day 2: Implemented text selection detection and floating save button. Logged selected text  to console.**
-- - Day 3: Collected metadata (title, URL, timestamp) along with selected text. Displayed all in a styled popup with "Confirm Save" button.
+-- Day 2: Implemented text selection detection and floating save button. Logged selected text  to console.**
+- -- Day 3: Collected metadata (title, URL, timestamp) along with selected text. Displayed all in a styled popup with "Confirm Save" button.
+- - - -Day 4: Collected metadata (title, URL, timestamp) along with selected text. Store all the data in the google sheet.
 ## Notes
 This is a Chrome extension and runs locally within the browser. No server or hosting is required at this stage.
 
