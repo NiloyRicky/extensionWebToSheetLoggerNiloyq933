@@ -45,9 +45,7 @@ const showMetadataPopup = (text) => {
     <strong>Title:</strong> ${title}<br>
     <strong>URL:</strong> ${url}<br>
     <strong>Time:</strong> ${timestamp}<br><br>
-    <button id="confirm-save" >Confirm Save</button>
-  
-`
+    <button id="confirm-save" >Confirm Save</button>`
   document.body.appendChild(popup);
 
   document.getElementById("confirm-save").onclick = () => {
@@ -57,8 +55,32 @@ const showMetadataPopup = (text) => {
       url,
       timestamp,
     });
+
+
+const dataToSave = {
+    text,
+    title: document.title,
+    url: window.location.href,
+    timestamp: new Date().toISOString(),
+  };
+
+  // Send message to background script
+  chrome.runtime.sendMessage({ action: "saveHighlight", data: dataToSave }, (response) => {
+    if (response && response.status === "success") {
+      console.log("✅ Saved to Google Sheet:", response.message);
+    } else {
+      console.error("❌ Error saving to Google Sheet");
+    }
+  });
+
+
+
+
+
+
+
     popup.remove();
-    button.remove();
+    
 
     // Later: send data to background script or Google Sheet
   };

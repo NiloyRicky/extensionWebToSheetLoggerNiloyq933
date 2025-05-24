@@ -3,7 +3,10 @@
   "name": "Highlight Saver",
   "version": "1.0",
   "description": "Save highlighted text to Google Sheets.",
-  "permissions": ["scripting", "activeTab"],
+  "permissions": ["scripting", "activeTab","storage"],
+   "host_permissions": [
+    "https://script.google.com/macros/s/*"
+  ],
   "action": {
     "default_popup": "popup.html"
     
