@@ -55,6 +55,20 @@ Handled success and error responses with Promises (.then and .catch).
 Ensured asynchronous message handling in background script by returning true.
 
 
+DAY-5 Progress
+Features
+
+Added custom toast notification system without external libraries.
+
+Separated toast styles into a dedicated CSS file for cleaner structure.
+
+Improved UI/UX with confirmation and error toasts upon saving highlights.
+
+Removed dependency on Toastify.js and handled toast display manually using JS and CSS.
+
+Ensured graceful fallback and toast removal for repeated events.
+
+
 
 ## Installation
 1. Clone or download this repository.
