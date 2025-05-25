@@ -1,5 +1,27 @@
 console.log("Hello from content script");
 
+
+const showToast = (message) => {
+  // Remove existing toast if any
+  const oldToast = document.getElementById("custom-toast");
+  if (oldToast) oldToast.remove();
+
+  const toast = document.createElement("div");
+  toast.id = "custom-toast";
+  toast.textContent = message;
+  
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 3000);
+};
+
+
+
+
+
+
+
+
 let lastText="";
 const showSaveButton = (x, y, text) => {
   // Remove old button if exists
@@ -67,8 +89,19 @@ const dataToSave = {
   // Send message to background script
   chrome.runtime.sendMessage({ action: "saveHighlight", data: dataToSave }, (response) => {
     if (response && response.status === "success") {
+
+showToast("✅ Success: Saved to Google Sheet!");
+
+
       console.log("✅ Saved to Google Sheet:", response.message);
     } else {
+
+
+      
+showToast("❌ can't saved to Google Sheet!");
+
+
+      
       console.error("❌ Error saving to Google Sheet");
     }
   });
