@@ -55,7 +55,7 @@ Handled success and error responses with Promises (.then and .catch).
 Ensured asynchronous message handling in background script by returning true.
 
 
-DAY-5 Progress
+## DAY-5 Progress
 Features
 
 Added custom toast notification system without external libraries.
@@ -92,6 +92,7 @@ Ensured graceful fallback and toast removal for repeated events.
 -- Day 2: Implemented text selection detection and floating save button. Logged selected text  to console.**
 - -- Day 3: Collected metadata (title, URL, timestamp) along with selected text. Displayed all in a styled popup with "Confirm Save" button.
 - - - -Day 4: Collected metadata (title, URL, timestamp) along with selected text. Store all the data in the google sheet.
+----- Day 5: Storing the selected text along with title,url,date into Google Sheets.Toaster messages also added
 ## Notes
 This is a Chrome extension and runs locally within the browser. No server or hosting is required at this stage.
 
