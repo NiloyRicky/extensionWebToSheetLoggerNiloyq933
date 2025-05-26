@@ -68,6 +68,20 @@ Removed dependency on Toastify.js and handled toast display manually using JS an
 
 Ensured graceful fallback and toast removal for repeated events.
 
+## DAY-6 Progress
+
+Features
+
+Implemented Duplicate Save Prevention: Introduced a mechanism to prevent saving the same text selection multiple times by normalizing the selected text and comparing it with the last saved entry.
+
+Enhanced Confirmation Prompt: Replaced the basic alert with a confirmation dialog that prompts users with "Are you sure you want to save this selection?" before saving, ensuring intentional user actions.
+
+Optimized Text Normalization: Applied text normalization using text.trim().replace(/\s+/g, " ") to standardize whitespace, ensuring consistent comparison and storage of text selections.
+
+Refined Toast Notifications: Improved the custom toast notification system to provide clear feedback on actions, such as successful saves or duplicate entries, enhancing user experience.
+
+Codebase Cleanup: Removed redundant variables and streamlined event listeners to improve code readability and maintainability.
+
 
 
 ## Installation
@@ -93,6 +107,7 @@ Ensured graceful fallback and toast removal for repeated events.
 - -- Day 3: Collected metadata (title, URL, timestamp) along with selected text. Displayed all in a styled popup with "Confirm Save" button.
 - - - -Day 4: Collected metadata (title, URL, timestamp) along with selected text. Store all the data in the google sheet.
 ----- Day 5: Storing the selected text along with title,url,date into Google Sheets.Toaster messages also added
+      ------ Day 6: Enhance user expreience and handle edge cases.
 ## Notes
 This is a Chrome extension and runs locally within the browser. No server or hosting is required at this stage.
 
