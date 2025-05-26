@@ -1,6 +1,6 @@
 console.log("Hello from content script");
 
-
+let lastSavedText ="";
 const showToast = (message) => {
   // Remove existing toast if any
   const oldToast = document.getElementById("custom-toast");
@@ -71,13 +71,24 @@ const showMetadataPopup = (text) => {
   document.body.appendChild(popup);
 
   document.getElementById("confirm-save").onclick = () => {
+
+       const normalizedText = text.trim().replace(/\s+/g, " ");
+
+  if (lastSavedText === normalizedText) {
+    showToast("⚠️ Already saved");
+    return;
+  }
     console.log("Saving to Sheet:", {
       text,
       title,
       url,
       timestamp,
     });
-
+ const confirmed= confirm("Are u want to save this text in google sheets");
+    if(!confirmed){
+      
+      return;
+    }
 
 const dataToSave = {
     text,
@@ -86,6 +97,10 @@ const dataToSave = {
     timestamp: new Date().toISOString(),
   };
 
+
+ // Updating the variable  after user confirms save
+  lastSavedText = normalizedText;
+    
   // Send message to background script
   chrome.runtime.sendMessage({ action: "saveHighlight", data: dataToSave }, (response) => {
     if (response && response.status === "success") {
