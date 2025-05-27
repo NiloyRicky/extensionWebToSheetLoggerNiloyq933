@@ -86,6 +86,13 @@ const showMetadataPopup = (text) => {
     });
  const confirmed= confirm("Are u want to save this text in google sheets");
     if(!confirmed){
+
+           popup.remove()
+
+      const saveBtn = document.getElementById("highlight-save-btn");
+if (saveBtn) {
+  saveBtn.remove();
+}
       
       return;
     }
