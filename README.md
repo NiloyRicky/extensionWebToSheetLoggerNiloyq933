@@ -82,6 +82,12 @@ Refined Toast Notifications: Improved the custom toast notification system to pr
 
 Codebase Cleanup: Removed redundant variables and streamlined event listeners to improve code readability and maintainability.
 
+## DAY-7 Progress
+Implemented Duplicate Save Prevention: Introduced a mechanism to prevent saving the same text selection multiple times by normalizing the selected text and comparing it with the last saved entry.
+
+Enhanced the UI by implementing hovering effects and adding confirmation pop-up.
+
+Codebase Cleanup: Removed redundant variables and streamlined event listeners to improve code readability and maintainability.
 
 
 ## Installation
@@ -108,6 +114,7 @@ Codebase Cleanup: Removed redundant variables and streamlined event listeners to
 - - - -Day 4: Collected metadata (title, URL, timestamp) along with selected text. Store all the data in the google sheet.
 ----- Day 5: Storing the selected text along with title,url,date into Google Sheets.Toaster messages also added
       ------ Day 6: Enhance user expreience and handle edge cases.
+      ------- Day 7: Enhanced UI and user experience
 ## Notes
 This is a Chrome extension and runs locally within the browser. No server or hosting is required at this stage.
 
